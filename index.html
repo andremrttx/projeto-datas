@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <script>
+        //1 função recebe duas datas e retorna a quantidade de dias de diferença
+        //2 função recebe duas datas e retorna a quantidade de horas de diferença
+        //3 função recebe duas datas e retorna a quantidade de meses de diferença
+        //4 função recebe duas datas e retorna a quantidade de anos de diferença
+        //5 função recebe duas datas e retorna qual é a maior
+        //6 função recebe duas datas e retorna um array ordenado crescente
+        //7 função que recebe um array de data e retorna ordenado
+        //8 função que recebe um array de datas e retorna um array com as datas maiores que a data atual
+        function calcularDiffDias(data1, data2) {
+            var dataInicial = data1.getime();
+            var dataFinal = data2.getime();
+            if (dataInicial < dataFinal) {
+                return [data1, data2];
+            } else {
+                return [data2, data1];
+            }
+        }
+        function ordernarListaDatas(listaDatas){
+            
+        }
+
+        console.log(calcularDiffDias(new Date(1992, 5, 1), new date()));
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
