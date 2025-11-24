@@ -14,6 +14,8 @@
         //6 função recebe duas datas e retorna um array ordenado crescente
         //7 função que recebe um array de data e retorna ordenado
         //8 função que recebe um array de datas e retorna um array com as datas maiores que a data atual
+        //9 data de nascimento retorna a idade
+        //10 despertador com horas minutos e segundo que aperece na tela com alerta
         function calcularDiffDias(data1, data2) {
             var dataInicial = data1.getime();
             var dataFinal = data2.getime();
@@ -23,11 +25,31 @@
                 return [data2, data1];
             }
         }
-        function ordernarListaDatas(listaDatas){
-            
+        function ordernarListaDatas(listaDatas) {
+            listaDatas.sort(function (a, b) { return a - b });
+            return listaDatas;
         }
-
-        console.log(calcularDiffDias(new Date(1992, 5, 1), new date()));
+        function filtrarDatas(listaDatas) {
+            var listaOrdenanda = listaDatas.filter(function (datas) {
+                return datas >= new Date();
+            })
+            return listaOrdenanda;
+        }
+        function calcularIdade(nascimento) {
+            try{
+            var idade = (new Date().setHours(0, 0, 0, 0) - nascimento.getTime()) / (1000 * 60 * 60 * 24 * 365);
+            if(idade<0){
+                console.log('voce ainda ira nascer!!!');
+            }else{
+            return parseInt(idade);
+            }   
+            }catch(error){
+            console.error('ocorreu um erro:',error.message);
+            }finally{
+                console.log('a execução acabou');
+            }
+        }
+        console.log(calcularIdade(new Date(2024,10,18)));
     </script>
 </head>
 
