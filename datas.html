@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <script>
+        //1 função recebe duas datas e retorna a quantidade de dias de diferença
+        //2 função recebe duas datas e retorna a quantidade de horas de diferença
+        //3 função recebe duas datas e retorna a quantidade de meses de diferença
+        //4 função recebe duas datas e retorna a quantidade de anos de diferença
+        //5 função recebe duas datas e retorna qual é a maior
+        //6 função recebe duas datas e retorna um array ordenado crescente
+        //7 função que recebe um array de data e retorna ordenado
+        //8 função que recebe um array de datas e retorna um array com as datas maiores que a data atual
+        //9 data de nascimento retorna a idade
+        //10 despertador com horas minutos e segundo que aperece na tela com alerta
+        function calcularDiffDias(data1, data2) {
+            var dataInicial = data1.getime();
+            var dataFinal = data2.getime();
+            if (dataInicial < dataFinal) {
+                return [data1, data2];
+            } else {
+                return [data2, data1];
+            }
+        }
+        function ordernarListaDatas(listaDatas) {
+            listaDatas.sort(function (a, b) { return a - b });
+            return listaDatas;
+        }
+        function filtrarDatas(listaDatas) {
+            var listaOrdenanda = listaDatas.filter(function (datas) {
+                return datas >= new Date();
+            })
+            return listaOrdenanda;
+        }
+        function calcularIdade(nascimento) {
+            try{
+            var idade = (new Date().setHours(0, 0, 0, 0) - nascimento.getTime()) / (1000 * 60 * 60 * 24 * 365);
+            if(idade<0){
+                console.log('voce ainda ira nascer!!!');
+            }else{
+            return parseInt(idade);
+            }   
+            }catch(error){
+            console.error('ocorreu um erro:',error.message);
+            }finally{
+                console.log('a execução acabou');
+            }
+        }
+        console.log(calcularIdade(new Date(2024,10,18)));
+        var display = {
+            escreverDisplay: function (){
+                var paragrafo = document.createElement("p");
+                paragrafo.id = "display";
+                document.body.append(paragrafo);
+                setInterval(function(){
+                    document.getElementById("display").innerHTML = newDate().getHours(),":",newDate().getMinutes(),":",newDate().getSeconds();
+                },1000);
+            },
+
+            configurarDespertador: function(horas,minutos,segundos){
+                setTimeout (function(){
+                    alert ("Despertador!!!");
+                },(horas*3600000)+(minutos*60000)+(segundos*1000));
+            },
+            
+            inicializar: function(){
+
+                this.escreverDisplay();
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
