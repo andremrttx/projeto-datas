@@ -9,7 +9,6 @@
 </head>
 
 <body>
-
 </body>
 <script>
     //1 função recebe duas datas e retorna a quantidade de dias de diferença
@@ -138,6 +137,54 @@
         }
 
     }
+    var imagens = [];
+    var galeria = {
+
+        displayIMG: function () {
+        //trasformar o arquivo da IMG em SCR
+        //criar uma div para a galeria
+        //criar uma estrutura de repetiçao que exibe todas as imagens de acordo com SCR
+        //chamar infoIMG?
+        for(i=0;imagens.length > i;i++){
+            var newIMG = document.createElement('img');
+            newIMG.width = 200;
+            newIMG.height = 200;
+            var leitor = new FileReader();
+            leitor.onload = function(e) {
+                var preview = newIMG;
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            leitor.readAsDataURL(imagens[i]);
+        }
+        },
+        infosIMG: function () {
+        //buscar as informaçoes do arquivo
+        //ser chamada junto com o display?
+        },
+        botaoIMG: function () {
+        //criar o botao
+        //adicionar evento ao botao
+        //adicionar evento ao:selecionar o arquivo no HD(limitado a imagens)
+        //change para a pessoa poder mudar o arquivo
+        //accept para somente imagens?
+        //chamar função infosIMG ao cliclar no botao,mandar como paramatro o arquivo da IMG
+        //chamar função displayIMG ao cliclar no botao,mandar como paramatro o arquivo da IMG
+        var botaoIMG = document.createElement('button');
+        botaoIMG.innerHTML = 'enviar imagem';
+        var escolherIMG = document.createElement('input');
+        escolherIMG.innerHTML = 'escolher imagem';
+        escolherIMG.type = 'file';
+        escolherIMG.accept = 'image/*';
+        escolherIMG.addEventListener('change',function(event){
+        imagens.push(event.target.files[0]);
+        });
+        document.body.append(botaoIMG);
+        document.body.append(escolherIMG);
+        },
+
+    }
+    galeria.botaoIMG();
     display.inicializar();
 </script>
 
