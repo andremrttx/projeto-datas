@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Aleatória</title>
+    <script>
+        listaCartasUsadas = [];
+        function gerarCartaAleatoria() {
+            var naipes = {
+                0: "copas",
+                1: "espadas",
+                2: "ouros",
+                3: "paus"
+            };
+            var numeros = {
+                0: undefined,
+                1: "2",
+                2: "3",
+                3: "4",
+                4: "5",
+                5: "6",
+                6: "7",
+                7: "8",
+                8: "9",
+                9: "10",
+                10: undefined,
+                11: undefined,
+                12: undefined
+            };
+            var figuras = {
+                0: "J",
+                1: "Q",
+                2: "K",
+                3: "A"
+            };
+            var Carta = {
+                valor: numeros[[Math.floor(Math.random() * 13)]],
+                naipe: naipes[[Math.floor(Math.random() * 4)]]
+            };
+            if (Carta.valor === undefined) {
+                Carta.valor = figuras[[Math.floor(Math.random() * 4)]];
+            };
+            for(i=0;i < listaCartasUsadas.length;i++){
+                if(Carta.valor === listaCartasUsadas[i].valor && Carta.naipe === listaCartasUsadas[i].naipe){
+                Carta = gerarCartaAleatoria();
+                alert('carta aleatoria');
+                };
+            };
+            listaCartasUsadas.push(Carta);
+            return Carta;
+        };
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
